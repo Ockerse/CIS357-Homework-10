@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 let BACKGROUND_COLOR = UIColor.init(red:0.000, green:0.369, blue:0.420,
                                     alpha:1.00) // Blueish
@@ -27,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navAppearance.tintColor = FOREGROUND_COLOR
         navAppearance.isTranslucent = false
         navAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+        FirebaseApp.configure()
         return true
     }
 
@@ -51,7 +53,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 

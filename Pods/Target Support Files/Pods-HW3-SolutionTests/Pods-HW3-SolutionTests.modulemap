@@ -1,0 +1,6 @@
+framework module Pods_HW3_SolutionTests {
+  umbrella header "Pods-HW3-SolutionTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

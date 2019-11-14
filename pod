@@ -1,0 +1,2 @@
+pod 'Firebase/Database'
+pod 'Firebase/Core'

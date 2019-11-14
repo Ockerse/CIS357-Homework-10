@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol HistoryTableViewControllerDelegate {
     func selectEntry(entry: Conversion)
@@ -227,6 +228,13 @@ extension Double {
 
 extension Date {
     struct Formatter {
+        static let iso8601: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.calendar = Calendar(identifier: .iso8601)
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"
+            return formatter
+        }()
+        
         static let short: DateFormatter = {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
@@ -236,6 +244,16 @@ extension Date {
     
     var short: String {
         return Formatter.short.string(from: self)
+    }
+    
+    var iso8601: String {
+        return Formatter.iso8601.string(from: self)
+    }
+}
+
+extension String {
+    var dateFromISO8601: Date? {
+        return Date.Formatter.iso8601.date(from: self)
     }
 }
 
